@@ -1,4 +1,5 @@
 # README
+┗アクティブハッシュを作成した際にアソシエーションも忘れない！子！
 
 ## users テーブル
 | Column             | Type   | Options     |
@@ -20,11 +21,11 @@
 | --------------------- | ---------- | ----------------------------- |
 | name                  | string     | null: false                   |
 | info                  | text       | null: false                   |
-| category_id           | integer    | null: false                   |→アクティブハッシュを使う。作った際にアソシエーションに追加
-| sales_status_id       | integer    | null: false                   |→アクティブハッシュを使う
-| shipping_fee_status_id| integer    | null: false                   |→アクティブハッシュを使う
-| prefecture_id         | integer    | null: false                   |→アクティブハッシュを使う
-| scheduled_delivery_id | integer    | null: false                   |→アクティブハッシュを使う
+| category_id           | integer    | null: false                   |
+| sales_status_id       | integer    | null: false                   |
+| shipping_fee_status_id| integer    | null: false                   |
+| prefecture_id         | integer    | null: false                   |
+| scheduled_delivery_id | integer    | null: false                   |
 | price                 | integer    | null: false                   |
 | user                  | references | null: false, foreign_key: true|
 <!-- Association 関係性 -->
@@ -34,6 +35,7 @@
 
 
 ## oders テーブル
+┗カード決済は外部のを使う。
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
 | item               | references | null: false, foreign_key: true|
@@ -48,7 +50,7 @@
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
 | postal_code        | string     | null: false                   |
-| prefecture_id      | integer    | null: false                   |→アクティブハッシュを使う
+| prefecture_id      | integer    | null: false                   |
 | city               | string     | null: false                   |
 | addresses          | string     | null: false                   |
 | building           | string     | null: true                    |
