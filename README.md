@@ -16,17 +16,17 @@
 - has_many :transaction
 
 ## items テーブル
-| Column             | Type       | Options                       |
-| ------------------ | ---------- | ----------------------------- |
-| name               | string     | null: false                   |
-| info               | text       | null: false                   |
-| category           | integer    | null: false                   |→アクティブハッシュを使う。作った際にアソシエーションに追加
-| sales_status       | integer    | null: false                   |→アクティブハッシュを使う
-| shipping_fee_status| integer    | null: false                   |→アクティブハッシュを使う
-| prefecture         | integer    | null: false                   |→アクティブハッシュを使う
-| scheduled_delivery | integer    | null: false                   |→アクティブハッシュを使う
-| price              | integer    | null: false                   |
-| user               | references | null: false, foreign_key: true|
+| Column                | Type       | Options                       |
+| --------------------- | ---------- | ----------------------------- |
+| name                  | string     | null: false                   |
+| info                  | text       | null: false                   |
+| category_id           | integer    | null: false                   |→アクティブハッシュを使う。作った際にアソシエーションに追加
+| sales_status_id       | integer    | null: false                   |→アクティブハッシュを使う
+| shipping_fee_status_id| integer    | null: false                   |→アクティブハッシュを使う
+| prefecture_id         | integer    | null: false                   |→アクティブハッシュを使う
+| scheduled_delivery_id | integer    | null: false                   |→アクティブハッシュを使う
+| price                 | integer    | null: false                   |
+| user                  | references | null: false, foreign_key: true|
 <!-- Association 関係性 -->
 - belongs_to :user
 - has_one :transaction
@@ -49,8 +49,8 @@
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
 | postal_code        | string     | null: false                   |
-| prefecture         | integer    | null: false                   |→アクティブハッシュを使う
-| city               | integer    | null: false                   |→アクティブハッシュを使う
+| prefecture_id      | integer    | null: false                   |→アクティブハッシュを使う
+| city_id            | integer    | null: false                   |→アクティブハッシュを使う
 | addresses          | string     | null: false                   |
 | building           | string     | null: true                    |
 | phone_number       | string     | null: false                   |
