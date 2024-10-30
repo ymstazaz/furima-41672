@@ -22,16 +22,16 @@
 | ------------------ | ---------- | ----------------------------- |
 | name               | string     | null: false                   |
 | info               | text       | null: false                   |
-| category           | string     | null: false                   |
-| sales_status       | string     | null: false                   |
-| shipping_fee_status| string     | null: false                   |
-| prefecture         | string     | null: false                   |
-| scheduled-delivery | string     | null: false                   |
+| category           | integer    | null: false                   |→アクティブハッシュを使う。作った際にアソシエーションに追加
+| sales_status       | integer    | null: false                   |→アクティブハッシュを使う
+| shipping_fee_status| integer    | null: false                   |→アクティブハッシュを使う
+| prefecture         | integer    | null: false                   |→アクティブハッシュを使う
+| scheduled_delivery | integer    | null: false                   |→アクティブハッシュを使う
 | price              | integer    | null: false                   |
 | user               | references | null: false, foreign_key: true|
 <!-- Association 関係性 -->
 - belongs_to :user
-- belongs_to :transaction
+- has_one :transaction
 - has_one_attached :image
 
 
@@ -43,19 +43,20 @@
 | user               | references | null: false, foreign_key: true|
 <!-- Association 関係性 -->
 - belongs_to :user
-- belongs_to :item
-- belongs_to :shipping_address
+- belongs_to :
+item
+- has_one :shipping_address
 
 
 ## shipping_address テーブル
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
-| postal_code        | integer    | null: false                   |
-| prefecture         | string     | null: false                   |
-| city               | string     | null: false                   |
+| postal_code        | string     | null: false                   |
+| prefecture         | integer    | null: false                   |→アクティブハッシュを使う
+| city               | integer    | null: false                   |→アクティブハッシュを使う
 | addresses          | string     | null: false                   |
 | building           | string     | null: true                    |
-| phone_number       | integer    | null: false                   |
+| phone_number       | string     | null: false                   |
 | transaction        | references | null: false, foreign_key: true|
 <!-- Association 関係性 -->
 - belongs_to :transaction
