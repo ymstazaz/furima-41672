@@ -36,7 +36,6 @@
 ## transactions テーブル
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
-| charge(仮)         | text       | null: false                   |←クレカは別サービスを利用
 | item               | references | null: false, foreign_key: true|
 | user               | references | null: false, foreign_key: true|
 <!-- Association 関係性 -->
@@ -50,7 +49,7 @@
 | ------------------ | ---------- | ----------------------------- |
 | postal_code        | string     | null: false                   |
 | prefecture_id      | integer    | null: false                   |→アクティブハッシュを使う
-| city_id            | integer    | null: false                   |→アクティブハッシュを使う
+| city               | integer    | null: false                   |
 | addresses          | string     | null: false                   |
 | building           | string     | null: true                    |
 | phone_number       | string     | null: false                   |
