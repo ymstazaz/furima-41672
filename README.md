@@ -58,5 +58,4 @@
 | phone_number       | integer    | null: false                   |
 | transaction        | references | null: false, foreign_key: true|
 <!-- Association 関係性 -->
-- belongs_to :user
-- belongs_to :item
+- belongs_to :transaction
