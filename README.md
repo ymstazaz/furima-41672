@@ -1,7 +1,5 @@
 # README
 
-# README
-
 ## users テーブル
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
@@ -43,8 +41,7 @@
 | user               | references | null: false, foreign_key: true|
 <!-- Association 関係性 -->
 - belongs_to :user
-- belongs_to :
-item
+- belongs_to :item
 - has_one :shipping_address
 
 
