@@ -13,7 +13,7 @@
 | birth              | date   | null: false |
 <!-- Association 関係性 -->
 - has_many :items
-- has_many :transactions
+- has_many :oders
 
 ## items テーブル
 | Column                | Type       | Options                       |
@@ -29,11 +29,11 @@
 | user                  | references | null: false, foreign_key: true|
 <!-- Association 関係性 -->
 - belongs_to :user
-- has_one :transaction
+- has_one :oder
 - has_one_attached :image
 
 
-## transactions テーブル
+## oders テーブル
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
 | item               | references | null: false, foreign_key: true|
@@ -55,4 +55,4 @@
 | phone_number       | string     | null: false                   |
 | oder               | references | null: false, foreign_key: true|
 <!-- Association 関係性 -->
-- belongs_to :transaction
+- belongs_to :oder
