@@ -13,7 +13,7 @@
 | birth              | date   | null: false |
 <!-- Association 関係性 -->
 - has_many :items
-- has_many :transaction
+- has_many :transactions
 
 ## items テーブル
 | Column                | Type       | Options                       |
@@ -49,10 +49,10 @@
 | ------------------ | ---------- | ----------------------------- |
 | postal_code        | string     | null: false                   |
 | prefecture_id      | integer    | null: false                   |→アクティブハッシュを使う
-| city               | integer    | null: false                   |
+| city               | string     | null: false                   |
 | addresses          | string     | null: false                   |
 | building           | string     | null: true                    |
 | phone_number       | string     | null: false                   |
-| transaction        | references | null: false, foreign_key: true|
+| oder               | references | null: false, foreign_key: true|
 <!-- Association 関係性 -->
 - belongs_to :transaction
