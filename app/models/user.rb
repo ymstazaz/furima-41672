@@ -17,6 +17,6 @@ class User < ApplicationRecord
   }
   validates :birth, presence: true
   validates :password, format: {
-    with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).+\z/
+    with: /\A(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+\z/
   }
 end
