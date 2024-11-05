@@ -5,8 +5,8 @@
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= render "shared/error_messages", resource: @item %>
-    <%= form_with(model: @item, local: true, data: { turbo: false }) do |f| %>
+    <%= render "shared/error_messages", data: { turbo: false },resource: @item %>
+    <%= form_with(model: @item, local: true) do |f| %>
 
     <%# 商品画像 %>
     <div class="img-upload">
@@ -84,12 +84,15 @@
 
     <%# 販売価格 %>
     <div class="sell-price">
+      <script src="new.js"></script>
+      <%= javascript_include_tag "controllers/new", data: { turbo: false }, defer: true %>
       <div class="weight-bold-text question-text">
         <span>販売価格<br>(¥300〜9,999,999)</span>
         <a class="question" href="#">?</a>
       </div>
       <div>
         <div class="price-content">
+          <link rel="preload" href="/assets/controllers/new.js" as="script" crossorigin="anonymous">
           <div class="price-text">
             <span>価格</span>
             <span class="indispensable">必須</span>
@@ -154,4 +157,3 @@
     </p>
   </footer>
 </div>
-<%= javascript_include_tag 'controllers/new' %> 
