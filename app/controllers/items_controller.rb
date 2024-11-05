@@ -5,6 +5,11 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    if user_signed_in?
+      render 'new'
+    else
+      redirect_to '/users/sign_in'
+    end
   end
 
   def create
@@ -13,7 +18,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      puts @item.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end
