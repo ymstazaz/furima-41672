@@ -1,15 +1,11 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, only: [:new]
   def index
     @items = Item.all
   end
 
   def new
     @item = Item.new
-    if user_signed_in?
-      render 'new'
-    else
-      redirect_to '/users/sign_in'
-    end
   end
 
   def create

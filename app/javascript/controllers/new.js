@@ -9,7 +9,7 @@ function calculatePrice() {
 
       if (!isNaN(price) && price > 0) {
         const fee = Math.floor(price * 0.1); // 手数料を10%として計算
-        const profitAmount = price - fee; // 利益を計算
+        const profitAmount = Math.floor(price - fee);  // 利益を計算
 
         addTaxPrice.textContent = fee.toLocaleString();
         profit.textContent = profitAmount.toLocaleString();
