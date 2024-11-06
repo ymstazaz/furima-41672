@@ -23,4 +23,3 @@ function calculatePrice() {
 
 window.addEventListener("turbo:load" ,calculatePrice);
 window.addEventListener("turbo:render", calculatePrice);
-// window.addEventListener("turbo:redirect", calculatePrice);
