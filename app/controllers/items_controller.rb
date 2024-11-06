@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :show]
   def index
     @items = Item.all
   end
@@ -16,6 +16,10 @@ class ItemsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
 
