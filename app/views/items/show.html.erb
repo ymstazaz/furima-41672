@@ -9,11 +9,11 @@
     <div class="item-img-content">
       <%= image_tag @item.image ,class:"item-box-img" %>
       <%# 商品が売れている場合は、sold outを表示しましょう %><%# oderモデルが終わり次第 %>
-      <% if @item.sold_out? %>
+      <%# if @item.sold_out? %>
         <div class="sold-out">
           <span>Sold Out!!</span>
         </div>
-      <% end %>
+      <%# end %>
       <%# //商品が売れている場合は、sold outを表示しましょう %>
     </div>
     <div class="item-price-box">
@@ -103,7 +103,7 @@
   </div>
 
   <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
-  
+
 </div>
 
 <%= render "shared/footer" %>
