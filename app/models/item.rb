@@ -12,9 +12,9 @@ class Item < ApplicationRecord
   validates :info, presence: true
   validates :category_id, numericality: { other_than: 1 }, presence: true
   validates :sales_status_id, numericality: { other_than: 1 }, presence: true
-  validates :shipping_fee_status_id,  numericality: { other_than: 1 }, presence: true
-  validates :prefecture_id,  numericality: { other_than: 1 }, presence: true
-  validates :scheduled_delivery_id,  numericality: { other_than: 1 }, presence: true
+  validates :shipping_fee_status_id, numericality: { other_than: 1 }, presence: true
+  validates :prefecture_id, numericality: { other_than: 1 }, presence: true
+  validates :scheduled_delivery_id, numericality: { other_than: 1 }, presence: true
   validates :price, presence: true,
                     numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   validates :image, presence: true
@@ -22,5 +22,4 @@ class Item < ApplicationRecord
   def sold_out?
     false # あとでoderモデルに存在item_idがあるかどうかを記載
   end
-
 end
