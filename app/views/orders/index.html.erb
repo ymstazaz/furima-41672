@@ -1,5 +1,4 @@
 <%= render "shared/second-header"%>
-<%= render "shared/error_messages", resource: @order_shipping_address %>
 <%= include_gon %>
 
 <div class='transaction-contents'>
@@ -32,7 +31,7 @@
       </p>
     </div>
     <%# /支払額の表示 %>
-
+<%= render "shared/error_messages", resource: @order_shipping_address %>
     <%= form_with model: @order_shipping_address, url: item_orders_path(@item), id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%# カード情報の入力 %>
     <script type="text/javascript" src="https://js.pay.jp/v2/pay.js"></script>
