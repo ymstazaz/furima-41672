@@ -1,9 +1,9 @@
 class OrderShippingAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :order_id, :postal_code, :prefecture_id, :city, :addresses, :building, :phone_number
+  attr_accessor :user_id, :item_id, :order_id, :postal_code, :prefecture_id, :city, :addresses, :building, :phone_number, :token
 
   with_options presence: true do
-    validates :city, :addresses, :item_id, :user_id
+    validates :city, :addresses, :item_id, :user_id, :token
     validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/ }
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }
   end
