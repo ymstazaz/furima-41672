@@ -21,6 +21,6 @@ class Item < ApplicationRecord
   validates :image, presence: true
 
   def sold_out?
-    false # あとでoderモデルに存在item_idがあるかどうかを記載
+    order.present?
   end
 end

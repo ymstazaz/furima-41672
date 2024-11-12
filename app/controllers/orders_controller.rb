@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
   before_action :find_item, only: [:index, :create]
   before_action :check_different_user, only: [:index, :create]
+  before_action :sold_check, only: [:index, :create]
 
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
@@ -45,5 +46,11 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def sold_check
+    return unless @item.sold_out?
+
+    redirect_to root_path
   end
 end
