@@ -4,11 +4,17 @@ class OrdersController < ApplicationController
   before_action :check_different_user, only: [:index, :create]
 
   def index
-    @order = Order.new
+    @order_shipping_address = OrderShippingAddress.new
   end
 
   def create
-    # 保存後の飛び先指定がまだ
+    @order_shipping_address = OrderShippingAddress.new(order_params)
+    if @order_shipping_address.valid?
+      @order_shipping_address.save
+      redirect_to root_path
+    else
+      render :index
+    end
   end
 
   private
@@ -21,5 +27,11 @@ class OrdersController < ApplicationController
     return if current_user.id != @item.user_id
 
     redirect_to root_path
+  end
+
+  def order_params
+    params.require(:order_shipping_address).permit(:postal_code, :prefecture_id, :city, :addresses, :building, :phone_number).merge(
+      user_id: current_user.id, item_id: @item.id
+    )
   end
 end
