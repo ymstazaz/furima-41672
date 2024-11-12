@@ -64,6 +64,26 @@ RSpec.describe OrderShippingAddress, type: :model do
         @order_shipping_address.valid?
         expect(@order_shipping_address.errors.full_messages).to include('Phone number is invalid')
       end
+      it 'phone_numberは9桁以下だと保存できない' do
+        @order_shipping_address.phone_number = '123456789'
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include('Phone number is invalid')
+      end
+      it 'phone_numberは12桁以下だと保存できない' do
+        @order_shipping_address.phone_number = '123456789012'
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include('Phone number is invalid')
+      end
+      it 'user_idが紐づいてなければ保存できない' do
+        @order_shipping_address.user_id = ''
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが紐づいてなければ保存できない' do
+        @order_shipping_address.item_id = ''
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Item can't be blank")
+      end
     end
   end
 end
