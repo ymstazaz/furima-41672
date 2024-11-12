@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-
+  has_many :orders
   validates :nickname, presence: true
   validates :last_name, presence: true, format: {
     with: /\A(\p{Hiragana}|\p{Katakana}|[一-龠々])+\z/

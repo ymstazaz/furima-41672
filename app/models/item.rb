@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
+  has_one :order
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category, class_name: 'Category'
@@ -20,6 +21,6 @@ class Item < ApplicationRecord
   validates :image, presence: true
 
   def sold_out?
-    false # あとでoderモデルに存在item_idがあるかどうかを記載
+    order.present?
   end
 end
